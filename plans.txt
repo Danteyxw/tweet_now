@@ -1,0 +1,16 @@
+Group Meal Planner
+
+Purpose:
+allow a group of people with fixed meal times to choose where to eat with ease. e.g. company employees going out for lunch.
+
+Factors:
+budget
+
+Flow:
+create account
+	account
+		username - input
+		password - input
+
+		
+
