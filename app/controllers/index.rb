@@ -6,7 +6,7 @@ end
 post '/tweet' do
 	text = params[:text]
 
-	TWITTER_CLIENT.update(text)
-
-	redirect '/'
+	if text != ""
+		TWITTER_CLIENT.update(text)
+	end
 end

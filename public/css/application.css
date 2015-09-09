@@ -7,3 +7,6 @@
 th {
   text-align: left;
 }
+#loading {
+	display: none;
+}
