@@ -31,7 +31,7 @@ require 'omniauth-twitter'
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
-APP_KEY = YAML.load_file('config/keys.yml')
+# APP_KEY = YAML.load_file('config/keys.yml')
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
@@ -42,8 +42,8 @@ require APP_ROOT.join('config', 'database')
 
 # Set up the database and models
 TWITTER_CLIENT = Twitter::REST::Client.new do |config|
-	config.consumer_key = APP_KEY["consumer_key_public"]
-	config.consumer_secret = APP_KEY["consumer_key_private"]
+	config.consumer_key = ENV["APP_KEY_PUBLIC"]
+	config.consumer_secret = ENV["APP_KEY_PRIVATE"]
 end
 
 use OmniAuth::Builder do
