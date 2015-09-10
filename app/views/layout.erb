@@ -18,6 +18,11 @@
   <title></title>
 </head>
 <body>
+  <header>
+    <%= session[:user] %>
+    <a href="/logout">logout</a>
+  </header>
+
   <%= yield %>
 </body>
 </html>
