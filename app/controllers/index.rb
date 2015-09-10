@@ -33,7 +33,9 @@ get '/auth/twitter/callback' do
 end
 
 post '/tweet' do
-	user = User.find_by(username: session[:username])
+	user = User.find_by(username: session[:user])
+
+	byebug
 
 	TWITTER_CLIENT.access_token = user.access_token
 	TWITTER_CLIENT.access_token_secret = user.access_secret
