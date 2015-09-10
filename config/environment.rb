@@ -26,6 +26,8 @@ require 'byebug'
 
 require 'yaml'
 
+require 'omniauth-twitter'
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -42,6 +44,8 @@ require APP_ROOT.join('config', 'database')
 TWITTER_CLIENT = Twitter::REST::Client.new do |config|
 	config.consumer_key = APP_KEY["consumer_key_public"]
 	config.consumer_secret = APP_KEY["consumer_key_private"]
-	config.access_token = APP_KEY["access_token_public"]
-	config.access_token_secret = APP_KEY["access_token_private"]
+end
+
+use OmniAuth::Builder do
+	provider :twitter, APP_KEY["consumer_key_public"], APP_KEY["consumer_key_private"]
 end
