@@ -1,6 +1,6 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+	# Look in app/views/index.erb
+	erb :index
 end
 
 get '/tweet' do
@@ -34,8 +34,6 @@ end
 
 post '/tweet' do
 	user = User.find_by(username: session[:user])
-
-	byebug
 
 	TWITTER_CLIENT.access_token = user.access_token
 	TWITTER_CLIENT.access_token_secret = user.access_secret
